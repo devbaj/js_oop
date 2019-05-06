@@ -6,17 +6,72 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        var tigger = { character: "Tigger" };
-        var pooh = { character: "Winnie the Pooh" };
-        var piglet = { character: "Piglet" };
-        var bees = { character: "Bees" };
-        var owl = { character: "Owl" };
-        var chris = { character: "Christopher Robin" };
-        var rabbit = { character: "Rabbit" };
-        var gopher = { character: "Gopher" };
-        var kanga = { character: "Kanga" };
-        var eeyore = { character: "Eeyore" };
-        var heffalumps = { character: "Heffalumps" };
+        var tigger = { 
+            character: "Tigger",
+            greet: function(){
+                console.log("Time to bounce!");
+            }
+        };
+        var pooh = {
+            character: "Winnie the Pooh",
+            greet: function(){
+                console.log("Do you have honey?");
+            }
+        }
+        var piglet = {
+            character: "Piglet",
+            greet: function(){
+                console.log("W-w-w-what are you d-d-doing here?");
+            }
+        }
+        var bees = {
+            character: "Bees",
+            greet: function(){
+                console.log("Bzzzzzzzzz");
+            }
+        }
+        var owl = {
+            character: "Owl",
+            greet: function(){
+                console.log("WHOOO");
+            }
+        }
+        var chris = {
+            character: "Christopher Robin",
+            greet: function(){
+                console.log("I'm Christopher Robin!");
+            }
+        }
+        var rabbit = {
+            character: "Rabbit",
+            greet: function(){
+                console.log("Hippity Hop");
+            }
+        }
+        var gopher = {
+            character: "Gopher",
+            greet: function(){
+                console.log("What does the gopher say?");
+            }
+        }
+        var kanga = {
+            character: "Kanga",
+            greet: function(){
+                console.log("Have you seen Roo anywhere?");
+            }
+        }
+        var eeyore = {
+            character: "Eeyore", 
+            greet: function(){
+                console.log("Oh great, another visitor...");
+            }
+        }
+        var heffalumps = {
+            character: "Heffalumps",
+            greet: function(){
+                console.log("GET AWAY");
+            }
+        }
 
         tigger.north = pooh;
         pooh.south = tigger;
@@ -48,8 +103,6 @@
         }
 
         function move(direction){
-            console.log(player.location.character)
-            console.log(direction)
             if (direction == "north") {
                 if ("north" in player.location){
                     player.location = player.location.north;
@@ -86,6 +139,7 @@
                     console.log("You cannot go that way!");
                 }
             }
+            player.location.greet();
             return;
         }
 
