@@ -99,7 +99,8 @@
         heffalumps.west = eeyore;
 
         var player = {
-            location: tigger
+            location: tigger,
+            honey: false
         }
 
         function move(direction){
@@ -142,6 +143,69 @@
             player.location.greet();
             return;
         }
+
+        function pickUp(){
+            if (player.location == bees){
+                player.honey = true;
+            }
+            else {
+                console.log("There's no honey here...")
+            }
+        }
+
+        function mission(){
+            n = Math.floor((Math.random() * 10) + 1);
+            var target;
+            switch(n){
+                case 1:
+                    target = tigger;
+                    break;
+                case 2:
+                    target = pooh;
+                    break;
+                case 3:
+                    target = piglet;
+                    break;
+                case 4:
+                    target = owl;
+                    break;
+                case 5:
+                    target = chris;
+                    break;
+                case 6:
+                    target = rabbit;
+                    break;
+                case 7:
+                    target = kanga;
+                    break;
+                case 8:
+                    target = eeyore;
+                    break;
+                case 9:
+                    target = heffalumps;
+                    break;
+                case 10:
+                    target = gopher;
+                    break;
+            }
+            console.log("Your mission: deliver the honey to " + target.character);
+        return target;
+        }
+
+        function drop(){
+            if (player.honey == false) {
+                console.log("You don't have any honey!")
+            }
+            else if (player.location == target){
+                player.honey = false;
+                console.log("You win!")
+            }
+            else {
+                console.log("This isn't the place for that!")
+            }
+        }
+
+        target = mission();
 
     </script>
 </head>
